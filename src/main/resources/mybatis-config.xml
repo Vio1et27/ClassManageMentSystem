@@ -7,9 +7,9 @@
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
-        <package name="com.violet.crm.pojo"/>
+        <package name="com.cdy.cms.pojo"/>
     </typeAliases>
     <mappers>
-        <package name="com.violet.crm.mapper"/>
+        <package name="com.cdy.cms.mapper"/>
     </mappers>
 </configuration>
