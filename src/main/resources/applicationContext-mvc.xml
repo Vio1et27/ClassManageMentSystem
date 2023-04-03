@@ -23,9 +23,9 @@ http://www.springframework.org/schema/util/spring-util.xsd">
     <!-- dispatcherServlet截获所有URL请求 -->
     <mvc:default-servlet-handler />
     <!-- spring mvc 扫描包下的controller -->
-    <context:component-scan base-package="com.violet.crm.web.controller"/>
-    <context:component-scan base-package="com.violet.crm.settings.web.controller"/>
-    <context:component-scan base-package="com.violet.crm.workbench.web.controller"/>
+    <context:component-scan base-package="com.cdy.cms.web.controller"/>
+    <context:component-scan base-package="com.cdy.cms.settings.web.controller"/>
+    <context:component-scan base-package="com.cdy.cms.workbench.web.controller"/>
     <!-- 配置注解驱动 -->
     <mvc:annotation-driven/>
     <!-- 配置视图解析器 -->
@@ -45,7 +45,7 @@ http://www.springframework.org/schema/util/spring-util.xsd">
             <mvc:mapping path="/workbench/**"/>
             <mvc:exclude-mapping path="/settings/qx/user/toLogin.do"/>
             <mvc:exclude-mapping path="/settings/qx/user/login.do"/>
-            <bean class="com.violet.crm.settings.interceptor.LoginInterceptor"/>
+            <bean class="com.cdy.cms.settings.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>
