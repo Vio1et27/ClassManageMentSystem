@@ -1,5 +1,7 @@
 package com.cdy.cms.settings.interceptor;
 
+import com.cdy.cms.commons.contants.Contants;
+import com.cdy.cms.settings.pojo.Teacher;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,12 +16,11 @@ import javax.servlet.http.HttpSession;
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        /*HttpSession session = httpServletRequest.getSession();
-        if ((User)session.getAttribute(Contants.SESSION_USER) == null) {
+        HttpSession session = httpServletRequest.getSession();
+        if ((Teacher)session.getAttribute(Contants.SESSION_TEACHER) == null) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
             return false;
         }
-        return true;*/
         return true;
     }
 
