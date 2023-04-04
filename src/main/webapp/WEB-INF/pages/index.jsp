@@ -5,7 +5,7 @@
 </head>
 <body>
     <script type="text/javascript">
-      window.location.href = "settings/qx/user/toLogin.do";
+      window.location.href = "settings/qx/Login/toLogin.do";
     </script>
 </body>
 </html>

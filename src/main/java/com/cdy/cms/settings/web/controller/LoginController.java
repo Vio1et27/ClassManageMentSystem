@@ -33,7 +33,7 @@ public class LoginController {
 
     @RequestMapping("/settings/qx/Login/toLogin.do")
     public String toLogin(){
-        return "settings/qx/user/login";
+        return "settings/qx/Login/login";
     }
 
     /**

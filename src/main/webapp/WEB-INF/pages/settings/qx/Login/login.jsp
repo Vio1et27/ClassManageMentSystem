@@ -1,16 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+%>
 <html>
 <head>
-    <title>Title</title>
+    <base href="<%=basePath%>">
+    <meta charset="UTF-8">
+    <link href="jquery/bootstrap_3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
+    <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
     $(function (){
         /**
          * 点击注册按钮后，跳转到注册界面
          */
-        $("#registerBtn").onclick(function (){
+        $("#registerBtn").click(function (){
             window.location.href="settings/qx/Register/toRegister.do"
-        })
+        });
         /**
          * 当用户敲下回车键时，登录
          */
@@ -101,7 +109,7 @@
             <div class="page-header">
                 <h1>登录</h1>
             </div>
-            <form action="workbench/index.html" class="form-horizontal" role="form">
+            <form action="../../../workbench/index.jsp" class="form-horizontal" role="form">
                 <div class="form-group form-group-lg">
                     <div style="width: 350px;">
                         <input class="form-control" id="loginAct" type="text" value="${cookie.loginAct.value}" placeholder="用户名">

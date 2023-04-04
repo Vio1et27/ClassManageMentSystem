@@ -17,14 +17,14 @@ import javax.servlet.http.HttpSession;
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        HttpSession session = httpServletRequest.getSession();
+       /* HttpSession session = httpServletRequest.getSession();
         if ((Teacher)session.getAttribute(Contants.SESSION_TEACHER) == null) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
             return false;
         }else if((Student)session.getAttribute(Contants.SESSION_STUDENT) == null){
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
             return false;
-        }
+        }*/
         return true;
     }
 
