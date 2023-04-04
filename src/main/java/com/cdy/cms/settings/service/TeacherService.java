@@ -12,5 +12,11 @@ public interface TeacherService {
      */
     int insertTeacher(Teacher teacher);
 
+    /**
+     * 登录，通过教职工号和密码查询老师
+     * @param map
+     * @return
+     */
+
     Teacher queryUserByJobNumAndPwd(Map<String,Object> map);
 }
