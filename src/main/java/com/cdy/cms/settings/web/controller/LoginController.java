@@ -52,7 +52,7 @@ public class LoginController {
         ReturnObject returnObject = new ReturnObject();
         if (teacher == null) {
             //登陆失败，用户名不存在或密码错误
-            returnObject.setCode("0");
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
             returnObject.setMessage("登录失败，用户名不存在或密码错误");
         } else {
             String examineState = teacher.getExamineState();
@@ -65,7 +65,7 @@ public class LoginController {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
                 session.setAttribute(Contants.SESSION_TEACHER,teacher);
                 //登录成功，判断是否选择十天免登录
-                if("true".equals(isRemPwd)){
+/*                if("true".equals(isRemPwd)){
                     Cookie c1 = new Cookie("loginAct", loginAct);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(10*24*60*60);
@@ -79,7 +79,7 @@ public class LoginController {
                     c2.setMaxAge(0);
                     response.addCookie(c1);
                     response.addCookie(c2);
-                }
+                }*/
             }
         }
         return returnObject;
@@ -96,7 +96,7 @@ public class LoginController {
         ReturnObject returnObject = new ReturnObject();
         if (student == null) {
             //登陆失败，用户名不存在或密码错误
-            returnObject.setCode("0");
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
             returnObject.setMessage("登录失败，用户名不存在或密码错误");
         } else {
             String examineState = student.getExamineState();
@@ -109,7 +109,7 @@ public class LoginController {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
                 session.setAttribute(Contants.SESSION_TEACHER,student);
                 //登录成功，判断是否选择十天免登录
-                if("true".equals(isRemPwd)){
+                /*if("true".equals(isRemPwd)){
                     Cookie c1 = new Cookie("loginAct", loginAct);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(10*24*60*60);
@@ -123,7 +123,7 @@ public class LoginController {
                     c2.setMaxAge(0);
                     response.addCookie(c1);
                     response.addCookie(c2);
-                }
+                }*/
             }
         }
         return returnObject;

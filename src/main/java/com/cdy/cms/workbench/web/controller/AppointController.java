@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Controller
@@ -79,4 +80,7 @@ public class AppointController {
     }
 
     //一跳转到页面，执行queryAllCourses方法，查询所有已预约的教室
+    public String index(HttpServletRequest request){
+        return "";
+    }
 }
