@@ -42,11 +42,11 @@ public class LoginController {
      */
 
     @RequestMapping("/settings/qx/Login/LoginForTeacher.do")
-    public @ResponseBody Object LoginForTeacher(String loginAct, String loginPwd, String isRemPwd,
-                                      HttpServletRequest request, HttpServletResponse response,
-                                      HttpSession session){
+    public @ResponseBody Object LoginForTeacher(String teacherJobNumber, String loginPwd, String isRemPwd,
+                                                HttpServletRequest request, HttpServletResponse response,
+                                                HttpSession session){
         Map<String, Object> map = new HashMap<>();
-        map.put("loginAct", loginAct);
+        map.put("teacherJobNumber", teacherJobNumber);
         map.put("loginPwd", loginPwd);
         Teacher teacher = teacherService.queryUserByJobNumAndPwd(map);
         ReturnObject returnObject = new ReturnObject();
@@ -86,11 +86,11 @@ public class LoginController {
     }
 
     @RequestMapping("/settings/qx/Login/LoginForStudent.do")
-    public @ResponseBody Object LoginForStudent(String loginAct, String loginPwd, String isRemPwd,
+    public @ResponseBody Object LoginForStudent(String studentNumber, String loginPwd, String isRemPwd,
                                                 HttpServletRequest request, HttpServletResponse response,
                                                 HttpSession session){
         Map<String, Object> map = new HashMap<>();
-        map.put("loginAct", loginAct);
+        map.put("studentNumber", studentNumber);
         map.put("loginPwd", loginPwd);
         Student student = studentService.queryUserByStuNumAndPwd(map);
         ReturnObject returnObject = new ReturnObject();

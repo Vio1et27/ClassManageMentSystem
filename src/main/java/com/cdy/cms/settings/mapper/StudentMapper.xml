@@ -182,6 +182,6 @@
 
   <select id="queryUserByStunNumAndPwd" parameterType="map" resultMap="BaseResultMap">
     select <include refid="Base_Column_List"/>
-    from student where student_number = #{studentNumber} and login_pwd = #{loginPwd}
+    from student where student_number = #{studentNumber,jdbcType=VARCHAR} and login_pwd = #{loginPwd,jdbcType=VARCHAR}
   </select>
 </mapper>
