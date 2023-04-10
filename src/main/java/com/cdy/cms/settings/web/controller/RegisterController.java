@@ -22,21 +22,32 @@ public class RegisterController {
     private TeacherService teacherService;
     @Autowired
     private StudentService studentService;
+    @RequestMapping("/settings/qx/Register/toStuRegister.do")
+    public String toStuRegister(){
+        return "settings/qx/Register/StudentRegister";
+    }
+
     @RequestMapping("/settings/qx/Register/toRegister.do")
     public String toRegister(){
-        return "settings/qx/Register/register";
+        return "settings/qx/Register/StudentRegister";
+    }
+
+    @RequestMapping("/settings/qx/Register/toTeaRegister.do")
+    public String toTeaRegister(){
+        return "settings/qx/Register/TeacherRegister";
     }
 
     @RequestMapping("/settings/qx/Register/registerForTeacher.do")
     public @ResponseBody Object registerForTeacher(Teacher teacher) throws ParseException {
         ReturnObject returnObject = new ReturnObject();
-        teacher.setTeacherId(Integer.valueOf(UUIDUtils.getUUID()));
+        teacher.setTeacherId(UUIDUtils.getUUID());
         teacher.setCreateTime(DateUtils.formatDateTimeToDate(DateUtils.formatDateTimeToString(new Date())));
         teacher.setExamineState("true");
         //创建时，更新时间等于创建时间，后续提供修改信息方法
         teacher.setUpdateTime(teacher.getCreateTime());
-        int cnt = teacherService.insertTeacher(teacher);
+
         try {
+            int cnt = teacherService.insertTeacher(teacher);
             if (cnt > 0) {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
             } else {
@@ -54,13 +65,14 @@ public class RegisterController {
     @RequestMapping("/settings/qx/Register/registerForStudent.do")
     public @ResponseBody Object registerForStudent(Student student) throws ParseException {
         ReturnObject returnObject = new ReturnObject();
-        student.setStudentId(Integer.valueOf(UUIDUtils.getUUID()));
+        student.setStudentId(UUIDUtils.getUUID());
         student.setCreateTime(DateUtils.formatDateTimeToDate(DateUtils.formatDateTimeToString(new Date())));
         student.setExamineState("true");
         //创建时，更新时间等于创建时间，后续提供修改信息方法
         student.setUpdateTime(student.getCreateTime());
-        int cnt = studentService.insertStudent(student);
+
         try {
+            int cnt = studentService.insertStudent(student);
             if (cnt > 0) {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
             } else {

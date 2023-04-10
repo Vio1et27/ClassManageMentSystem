@@ -44,8 +44,14 @@ http://www.springframework.org/schema/util/spring-util.xsd">
             <mvc:mapping path="/settings/**"/>
             <mvc:mapping path="/workbench/**"/>
             <mvc:exclude-mapping path="/settings/qx/Login/toLogin.do"/>
-            <mvc:exclude-mapping path="/settings/qx/Login/login.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Login/LoginForTeacher.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Login/LoginForStudent.do"/>
             <mvc:exclude-mapping path="/settings/qx/Register/toRegister.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Register/toStuRegister.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Register/toTeaRegister.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Register/toTeaRegister.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Register/registerForTeacher.do"/>
+            <mvc:exclude-mapping path="/settings/qx/Register/registerForStudent.do"/>
             <bean class="com.cdy.cms.settings.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

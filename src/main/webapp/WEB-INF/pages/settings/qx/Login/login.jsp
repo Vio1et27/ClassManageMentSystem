@@ -12,16 +12,16 @@
     <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
     <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>教室管理系统用户登录</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resetForLogin.css">
+    <link rel="stylesheet" href="css/styleForLogin.css">
     <script type="text/javascript">
         $(function () {
 
             $("#loginBtnForStu").click(function () {
                 var studentNumber = $.trim($("#studentNumber").val());
                 var stuPwd = $.trim($("#stuPwd").val());
+                var isRemPwdForStu = $("#isRemPwdForStu").prop("checked");
                 if (studentNumber == "") {
                     alert("用户名不能为空");
                     return;
@@ -33,8 +33,9 @@
                 $.ajax({
                     url: 'settings/qx/Login/LoginForStudent.do',
                     data: {
-                        studentNumber:   studentNumber,
-                        loginPwd: stuPwd
+                        studentNumber: studentNumber,
+                        loginPwd: stuPwd,
+                        isRemPwdForStu:isRemPwdForStu
                     },
                     type: 'post',
                     dataType: 'json',
@@ -43,7 +44,7 @@
                             window.location.href = "settings/qx/Login/toStuMain.do";
                         } else {
                             $("#msgForStu").text(data.message);
-                            //alert("登录失败，用户名或密码错误!")
+                            //alert("登录失败，用户名或密码错误!");
                         }
                     },
                     beforeSend: function () {
@@ -57,6 +58,7 @@
             $("#loginBtnForTea").click(function () {
                 var teacherJobNumber = $.trim($("#teacherJobNumber").val());
                 var teaPwd = $.trim($("#teaPwd").val());
+                var isRemPwdForTea = $("#isRemPwdForTea").prop("checked");
                 if (teacherJobNumber == "") {
                     alert("用户名不能为空");
                     return;
@@ -69,7 +71,8 @@
                     url: 'settings/qx/Login/LoginForTeacher.do',
                     data: {
                         teacherJobNumber: teacherJobNumber,
-                        loginPwd: teaPwd
+                        loginPwd: teaPwd,
+                        isRemPwdForTea:isRemPwdForTea
                     },
                     type: 'post',
                     dataType: 'json',
@@ -78,7 +81,7 @@
                             window.location.href = "settings/qx/Login/toTeaMain.do";
                         } else {
                             $("#msgForTea").text(data.message);
-                            //alert("登录失败，用户名或密码错误!")
+                            //alert("登录失败，用户名或密码错误!");
                         }
                     },
                     beforeSend: function () {
@@ -97,24 +100,39 @@
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="#">
+        <div style=" background-color: #fff;display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.8rem;
+    height: 100%;">
             <h1>教师登录</h1>
             <span>尊敬的老师 : ) </span>
-            <input type="text" placeholder="用户名" class="input" id="teacherJobNumber">
-            <input type="password" placeholder="密码" class="input" id="teaPwd">
-            <span id="msgForTea" style="color:red"></span>
+            <input type="text" placeholder="工号" value="${cookie.teacherJobNumber.value}" class="input" id="teacherJobNumber">
+            <input type="password" placeholder="密码" value="${cookie.loginPwd.value}" class="input" id="teaPwd">
+            <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForTea" placeholder="记住密码">
+                <span id="msgForTea" style="color:red"></span>
             <button id="loginBtnForTea">登录</button>
-        </form>
+            <a href="settings/qx/Register/toTeaRegister.do" style="text-decoration: none;margin: 10px;">没有账号?立即注册!</a>
+        </div>
     </div>
     <div class="form-container login-container">
-        <form action="#">
+        <div style=" background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.8rem;
+    height: 100%;">
             <h1>学生登录</h1>
             <span>亲爱的同学(●'◡'●)</span>
-            <input type="text" placeholder="用户名" class="input" id="studentNumber">
-            <input type="password" placeholder="密码" class="input" id="stuPwd">
+            <input type="text" placeholder="学号" value="${cookie.studentNumber.value}" class="input" id="studentNumber">
+            <input type="password" placeholder="密码" value="${cookie.loginPwd.value}" class="input" id="stuPwd">
+            <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForStu" placeholder="记住密码">
             <span id="msgForStu" style="color:red"></span>
             <button id="loginBtnForStu">登录</button>
-        </form>
+            <a href="settings/qx/Register/toRegister.do" style="text-decoration: none;margin: 10px;">没有账号?立即注册!</a>
+        </div>
     </div>
     <!-- 滑动侧边栏 -->
     <div class="overlay-container">

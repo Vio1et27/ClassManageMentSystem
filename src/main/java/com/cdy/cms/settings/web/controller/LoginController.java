@@ -42,7 +42,7 @@ public class LoginController {
      */
 
     @RequestMapping("/settings/qx/Login/LoginForTeacher.do")
-    public @ResponseBody Object LoginForTeacher(String teacherJobNumber, String loginPwd, String isRemPwd,
+    public @ResponseBody Object LoginForTeacher(String teacherJobNumber, String loginPwd, String isRemPwdForTea,
                                                 HttpServletRequest request, HttpServletResponse response,
                                                 HttpSession session){
         Map<String, Object> map = new HashMap<>();
@@ -56,7 +56,7 @@ public class LoginController {
             returnObject.setMessage("登录失败，用户名不存在或密码错误");
         } else {
             String examineState = teacher.getExamineState();
-            if (examineState.equals("true")) {
+            if (examineState.equals("false")) {
                 //登陆失败，账号已过期
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
                 returnObject.setMessage("登录失败，状态已锁定");
@@ -65,28 +65,28 @@ public class LoginController {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
                 session.setAttribute(Contants.SESSION_TEACHER,teacher);
                 //登录成功，判断是否选择十天免登录
-/*                if("true".equals(isRemPwd)){
-                    Cookie c1 = new Cookie("loginAct", loginAct);
+                if("true".equals(isRemPwdForTea)){
+                    Cookie c1 = new Cookie("teacherJobNumber", teacherJobNumber);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(10*24*60*60);
                     c2.setMaxAge(10*24*60*60);
                     response.addCookie(c1);
                     response.addCookie(c2);
                 }else{
-                    Cookie c1 = new Cookie("loginAct", loginAct);
+                    Cookie c1 = new Cookie("teacherJobNumber", teacherJobNumber);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(0);
                     c2.setMaxAge(0);
                     response.addCookie(c1);
                     response.addCookie(c2);
-                }*/
+                }
             }
         }
         return returnObject;
     }
 
     @RequestMapping("/settings/qx/Login/LoginForStudent.do")
-    public @ResponseBody Object LoginForStudent(String studentNumber, String loginPwd, String isRemPwd,
+    public @ResponseBody Object LoginForStudent(String studentNumber, String loginPwd, String isRemPwdForStu,
                                                 HttpServletRequest request, HttpServletResponse response,
                                                 HttpSession session){
         Map<String, Object> map = new HashMap<>();
@@ -100,30 +100,30 @@ public class LoginController {
             returnObject.setMessage("登录失败，用户名不存在或密码错误");
         } else {
             String examineState = student.getExamineState();
-            if (examineState.equals("true")) {
+            if (examineState.equals("false")) {
                 //登陆失败，账号已过期
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
                 returnObject.setMessage("登录失败，状态已锁定");
             }else{
                 //登录成功
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
-                session.setAttribute(Contants.SESSION_TEACHER,student);
+                session.setAttribute(Contants.SESSION_STUDENT,student);
                 //登录成功，判断是否选择十天免登录
-                /*if("true".equals(isRemPwd)){
-                    Cookie c1 = new Cookie("loginAct", loginAct);
+                if("true".equals(isRemPwdForStu)){
+                    Cookie c1 = new Cookie("studentNumber", studentNumber);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(10*24*60*60);
                     c2.setMaxAge(10*24*60*60);
                     response.addCookie(c1);
                     response.addCookie(c2);
                 }else{
-                    Cookie c1 = new Cookie("loginAct", loginAct);
+                    Cookie c1 = new Cookie("studentNumber", studentNumber);
                     Cookie c2 = new Cookie("loginPwd", loginPwd);
                     c1.setMaxAge(0);
                     c2.setMaxAge(0);
                     response.addCookie(c1);
                     response.addCookie(c2);
-                }*/
+                }
             }
         }
         return returnObject;

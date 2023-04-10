@@ -44,15 +44,6 @@ span{
     max-width: 100vw;
     min-height: 70vh;
 }
-.form-container form{
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1.8rem;
-    height: 100%;
-}
 .form-container .input{
     width: 100%;
     height: 2.2rem;
