@@ -13,7 +13,7 @@
     <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教室管理系统用户登录</title>
-    <link rel="stylesheet" href="css/resetForLogin.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForLogin.css">
     <script type="text/javascript">
         $(function () {
