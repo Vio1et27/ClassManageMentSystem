@@ -23,11 +23,11 @@
                 var stuPwd = $.trim($("#stuPwd").val());
                 var isRemPwdForStu = $("#isRemPwdForStu").prop("checked");
                 if (studentNumber == "") {
-                    alert("用户名不能为空");
+                    $("#msgForStu").text("用户名不能为空");
                     return;
                 }
                 if (stuPwd == "") {
-                    alert("密码不能为空");
+                    $("#msgForStu").text("密码不能为空");
                     return;
                 }
                 $.ajax({
@@ -60,11 +60,11 @@
                 var teaPwd = $.trim($("#teaPwd").val());
                 var isRemPwdForTea = $("#isRemPwdForTea").prop("checked");
                 if (teacherJobNumber == "") {
-                    alert("用户名不能为空");
+                    $("#msgForTea").text("用户名不能为空");
                     return;
                 }
                 if (teaPwd == "") {
-                    alert("密码不能为空");
+                    $("#msgForTea").text("密码不能为空");
                     return;
                 }
                 $.ajax({
