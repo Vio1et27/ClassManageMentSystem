@@ -1,0 +1,98 @@
+body{
+    min-width: 1226px;
+    font-size: 16px;
+    color: #333;
+    background-color: rgb(241, 241, 249);
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+.topbar-wrapper{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px rgba(0, 0, 0, .2) solid;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    background-color: #c2c9d8;
+}
+.topbar{
+    margin: 0 40px;
+}
+.topbar .left,.right li{
+    float: left;
+}
+.left i{
+    color: #0d358d;
+    font-size: 28px;
+}
+.left li{
+    color: #0b2983;
+    font-size: 20px;
+}
+.topbar .right{
+    float: right;
+}
+.right li{
+    width: 80px;
+    text-align: center;
+}
+.right .li1,.right .li2{
+    width: 100px;
+}
+.right .li2{
+    margin-right: 26px;
+}
+.right li:hover {
+    color: #3b79ff;
+}
+.right .li1:hover .box1{
+    height: 120px;
+}
+.right .li2:hover .box2{
+    height: 120px;
+}
+.right li{
+    position: relative;
+}
+
+.right .box1{
+    position: absolute;
+    top: 40px;
+    width: 100px;
+    height: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    background-color: white;
+    transition: height 0.3s;
+}
+.right .box2{
+    position: absolute;
+    top: 40px;
+    width: 100px;
+    height: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    background-color: white;
+    transition: height 0.3s;
+}
+.make li{
+    font-size: 10px;
+}
+.right .login:hover a{
+    color: #3b79ff;
+}
+.right .signup:hover a{
+    color: #0b2983;
+}
+.right .signup a{
+    color: #859fd9;
+}
+.right .signup:hover{
+    background-color: #e6edfa;
+}
