@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="Font/css/all.css">
     <link rel="stylesheet" href="css/styleForIndex.css">
+    <link rel="icon" href="Font/favicon.ico">
 </head>
 <body>
 <div class="topbar-wrapper">
