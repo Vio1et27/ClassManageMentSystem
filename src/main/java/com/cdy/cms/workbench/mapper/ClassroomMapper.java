@@ -50,4 +50,6 @@ public interface ClassroomMapper {
      * @mbggenerated Thu Apr 13 23:53:27 CST 2023
      */
     int updateByPrimaryKey(Classroom record);
+
+    Classroom selectByClassRoomName(String name);
 }

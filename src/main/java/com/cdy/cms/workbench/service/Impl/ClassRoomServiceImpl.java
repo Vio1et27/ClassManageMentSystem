@@ -14,4 +14,9 @@ public class ClassRoomServiceImpl implements ClassRoomService {
     public Classroom queryClassRoomById(String id) {
         return classroomMapper.selectByClassRoomId(id);
     }
+
+    @Override
+    public Classroom quertClassRoomByName(String name) {
+        return classroomMapper.selectByClassRoomName(name);
+    }
 }
