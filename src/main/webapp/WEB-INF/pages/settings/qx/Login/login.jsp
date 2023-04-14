@@ -141,11 +141,13 @@
                 <h1>我是学生？</h1>
                 <p>那就来这边！</p>
                 <button class="dash" id="logIn">←</button>
+                <a href="WEB-INF/pages/index.jsp" style="margin-top: 20px; color: white;">返回主页</a>
             </div>
             <div class="overlay-panel overlay-right">
                 <h1>我是教师？</h1>
                 <p>请往这边~~~</p>
                 <button class="dash" id="signUp">→</button>
+                <a href="WEB-INF/pages/index.jsp" style="margin-top: 20px; color: white;">返回主页</a>
             </div>
         </div>
     </div>
