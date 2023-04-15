@@ -26,23 +26,23 @@
                 var age = $.trim($("#age").val());
                 var gender = $('input[type=radio]:checked').val();
                 if (fullName == "") {
-                    alert("学生姓名不能为空！");
+                    $("#msgForStu").text("学生姓名不能为空!");
                     return;
                 }
                 if (studentNumber == "") {
-                    alert("学号不能为空!");
+                    $("#msgForStu").text("学号不能为空!");
                     return;
                 }
                 if (loginPwd == "") {
-                    alert("密码不能为空!");
+                    $("#msgForStu").text("密码不能为空!");
                     return;
                 }
-                if (age <= 8 || age >= 30) {
-                    alert("年龄不符要求!");
+                if (age <= 16 || age >= 25) {
+                    $("#msgForStu").text("年龄不符要求(17 - 24)!");
                     return;
                 }
                 if (gender == "") {
-                    alert("性别不能为空!");
+                    $("#msgForStu").text("性别不能为空!");
                     return;
                 }
                 $.ajax({

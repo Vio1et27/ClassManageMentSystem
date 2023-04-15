@@ -26,23 +26,23 @@
                 var position = $("#position").val();
                 var gender = $('input[type=radio]:checked').val();
                 if (fullName == "") {
-                    alert("教师姓名不能为空！");
+                    $("#msgForTea").text("教师姓名不能为空!");
                     return;
                 }
                 if (teacherJobNumber == "") {
-                    alert("教职工不能为空!");
+                    $("#msgForTea").text("教职工号不能为空!");
                     return;
                 }
                 if (loginPwd == "") {
-                    alert("密码不能为空!");
+                    $("#msgForTea").text("密码不能为空!");
                     return;
                 }
                 if (position == "") {
-                    alert("职位不能为空");
+                    $("#msgForTea").text("职位不能为空!");
                     return;
                 }
                 if (gender == "") {
-                    alert("性别不能为空!");
+                    $("#msgForTea").text("性别不能为空!");
                     return;
                 }
                 $.ajax({
