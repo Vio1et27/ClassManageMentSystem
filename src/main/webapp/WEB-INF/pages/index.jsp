@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="topbar-wrapper">
-    <div class="topbar">
+    <div class="topbar w">
         <ul class="left">
             <li>
                 <i class="fas fa-school"></i>

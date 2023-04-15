@@ -156,4 +156,18 @@
   from classroom_information
   where classroom_name = #{classroomName,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByClassRoomCourse" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from classroom_information
+    where corresponding_courses = #{correspondingCourses,jdbcType=VARCHAR}
+  </select>
+
+  <select id="queryAllClassrooms" resultMap="BaseResultMap">
+
+    select
+    <include refid="Base_Column_List" />
+    from classroom_information
+  </select>
 </mapper>

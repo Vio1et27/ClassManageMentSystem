@@ -21,4 +21,6 @@ public class StudentServiceImpl implements StudentService {
     public Student queryUserByStuNumAndPwd(Map<String, Object> map) {
         return studentMapper.queryUserByStunNumAndPwd(map);
     }
+
+
 }

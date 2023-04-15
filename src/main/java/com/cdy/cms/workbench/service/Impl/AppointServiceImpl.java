@@ -25,4 +25,6 @@ public class AppointServiceImpl implements AppointService {
     public int updateAppointClass(Course course) {
         return courseMapper.updateAppointClass(course);
     }
+
+
 }

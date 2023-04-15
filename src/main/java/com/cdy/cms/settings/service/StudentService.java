@@ -19,4 +19,6 @@ public interface StudentService {
      * @return
      */
     Student queryUserByStuNumAndPwd(Map<String,Object> map);
+
+    //Student selectByStudentFullName(String fullName);
 }

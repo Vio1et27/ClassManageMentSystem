@@ -17,4 +17,19 @@ public class CourseSeviceImpl implements CourseService {
     public List<Course> queryAllCourses() {
         return courseMapper.queryAllCourses();
     }
+
+    @Override
+    public List<Course> queryAllCoursesForTea(String createBy) {
+        return courseMapper.queryAllCoursesForTea(createBy);
+    }
+
+    @Override
+    public List<Course> queryAllCoursesForStu(String students) {
+        return courseMapper.queryAllCoursesForStu(students);
+    }
+
+    @Override
+    public Course appointCourseForStu(String curriculum) {
+        return courseMapper.appointCourseForStu(curriculum);
+    }
 }

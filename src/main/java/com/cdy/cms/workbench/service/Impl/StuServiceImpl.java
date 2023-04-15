@@ -14,4 +14,9 @@ public class StuServiceImpl implements StuService {
     public Student queryStudentById(String id) {
         return studentMapper.selectByStudentId(id);
     }
+
+    @Override
+    public Student queryStudentByName(String fullName) {
+        return studentMapper.selectByStudentFullName(fullName);
+    }
 }

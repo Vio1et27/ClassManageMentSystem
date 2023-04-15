@@ -9,6 +9,17 @@ a {
     color: #333;
 }
 
+.w{
+    width: 1226px;
+    margin: 0 auto;
+}
+
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear:both;
+}
 
 
 .topbar-wrapper{

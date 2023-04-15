@@ -54,4 +54,6 @@ public interface StudentMapper {
     int updateByPrimaryKey(Student record);
 
     Student queryUserByStunNumAndPwd(Map<String,Object> map);
+
+    Student selectByStudentFullName(String fullName);
 }

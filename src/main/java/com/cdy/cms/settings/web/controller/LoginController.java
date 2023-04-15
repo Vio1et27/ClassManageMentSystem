@@ -63,6 +63,7 @@ public class LoginController {
             }else{
                 //登录成功
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+                //会话中放入老师信息
                 session.setAttribute(Contants.SESSION_TEACHER,teacher);
                 //登录成功，判断是否选择十天免登录
                 if("true".equals(isRemPwdForTea)){
@@ -107,6 +108,7 @@ public class LoginController {
             }else{
                 //登录成功
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+                //会话中放入学生信息
                 session.setAttribute(Contants.SESSION_STUDENT,student);
                 //登录成功，判断是否选择十天免登录
                 if("true".equals(isRemPwdForStu)){

@@ -184,4 +184,11 @@
     select <include refid="Base_Column_List" />
     from student where student_number = #{studentNumber,jdbcType=VARCHAR} and login_pwd = #{loginPwd,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByStudentFullName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from student
+    where full_name = #{fullName,jdbcType=VARCHAR}
+  </select>
 </mapper>

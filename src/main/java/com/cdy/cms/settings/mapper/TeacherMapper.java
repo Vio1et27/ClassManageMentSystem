@@ -55,4 +55,5 @@ public interface TeacherMapper {
 
     Teacher queryUserByJobNumAndPwd(Map<String,Object> map);
 
+    Teacher selectByTeacherFullName(String fullName);
 }
