@@ -1,0 +1,151 @@
+body{
+    min-width: 1226px;
+    color: #333;
+    font-size: 16px;
+    background-color: rgb(220, 220, 234);
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.w{
+    width: 1226px;
+    margin: 0 auto;
+}
+
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear:both;
+}
+
+
+.topbar-wapper{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px rgba(0, 0, 0, .2) solid;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    background-color: #c2c9d8;
+    z-index: 999;
+    
+}
+.topbar .left,.right li{
+    float: left;
+}
+.left .cmms{
+    width: 200px;
+    font-size: 20px;
+}
+.left i{
+    color: #0d358d;
+    font-size: 28px;
+}
+.left li{
+    float: left;
+    color: #0b2983;
+    width: 140px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.left li:not(:first-of-type):hover {
+    background-color: #859fd9;
+}
+.left li a:active{
+    color:#e0d5d3;
+}
+
+.topbar .right{
+    float: right;
+}
+.right li{
+    letter-spacing: 1px;
+}
+.right li .portrait{
+    margin: 5px 6px;
+    height: 40px;
+    width: 40px;
+    background-image: url(../image/portrait.png);
+    background-size: cover;
+    border-radius: 50%;
+    transition: 0.2s;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+}
+
+.right li .portrait:hover{
+    transform: translateY(-2px);
+}
+
+
+.stuDetails{
+    background-color: #5a7dc7;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+}
+.stuDetails a{
+    color:#e0d5d3;
+}
+
+.head-wrapper{
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    height: 80px;
+    padding-left: 10%;
+    line-height: 80px;
+    border-bottom: 1px solid #859fd9;
+    background-color: rgba(241, 241, 249,.5);
+}
+.head{
+    font-size: 20px;
+}
+.head h1{
+    letter-spacing: 3px;
+}
+
+.main-wrapper{
+    position: absolute;
+    top: 160px;
+    height: 480px;
+    width: 1000px;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+
+.main{ 
+   padding: 20px;
+}
+.main .myDetails{
+    padding: 10px;
+    font-size: 18px;
+    width: fit-content;
+    border-radius: 3px;
+    border: #859fd9 2px dotted;
+    background-color: #c2c9d8;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.main ul{
+    padding: 30px 20px;
+    border-top: #859fd9 1px solid;
+}
+.main li{
+   margin-bottom: 20px;
+   letter-spacing: 2px;
+}
+.main li div{
+    display:inline;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+}
+
+
+
+
