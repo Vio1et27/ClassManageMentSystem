@@ -21,7 +21,6 @@ a {
     clear:both;
 }
 
-
 .topbar-wrapper{
     position: fixed;
     top:0;
@@ -31,9 +30,6 @@ a {
     border-bottom: 1px rgba(0, 0, 0, .2) solid;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     background-color: #c2c9d8;
-}
-.topbar{
-    margin: 0 40px;
 }
 .topbar .left,.right li{
     float: left;
