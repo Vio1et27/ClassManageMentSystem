@@ -203,12 +203,111 @@
     where students = #{students,jdbcType=VARCHAR}
   </select>
 
-  <select id="appointCourseForStu" parameterType="String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
+
+
+  <select id="selectCourseByConditionForPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
     from course_management
-    where curriculum = #{curriculum,jdbcType=VARCHAR}
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="selectCountOfCourseByCondition" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from course_management
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+    </where>
   </select>
 
 
+  <update id="appointCourseForStu" parameterType="string" >
+    update course_management
+    set students = #{students}
+    where classroom_name in
+    <foreach collection="classroomName" item="classroomName" separator="," open="(" close=")">
+      #{classroomName}
+    </foreach>
+  </update>
+
+  <select id="selectCourseByName" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from course_management
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+      <if test="true">
+        and students = #{students}
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="selectCountOfCourseByName" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from course_management
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+      <if test="true">
+        and students = #{students}
+      </if>
+    </where>
+  </select>
 </mapper>

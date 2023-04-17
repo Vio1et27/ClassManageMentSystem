@@ -2,8 +2,10 @@ package com.cdy.cms.workbench.mapper;
 
 import com.cdy.cms.settings.pojo.Student;
 import com.cdy.cms.workbench.pojo.Course;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CourseMapper {
     /**
@@ -60,7 +62,13 @@ public interface CourseMapper {
 
     List<Course> queryAllCoursesForStu(String students);
 
-    Course appointCourseForStu(String curriculum);
+    int appointCourseForStu(@Param("classroomName") String classroomName[],@Param("students") String students);
 
+    List<Course> selectCourseByConditionForPage(Map<String,Object> map);
 
+    int selectCountOfCourseByCondition(Map<String,Object> map);
+
+    List<Course> selectCourseByName(Map<String,Object> map);
+
+    int selectCountOfCourseByName(Map<String,Object> map);
 }

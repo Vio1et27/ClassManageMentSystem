@@ -15,7 +15,7 @@ h1{
     color: rgb(87, 82, 82);
 }
 .container{
-    height: 404px;
+    height: 440px;
 }
 .form-container input{
    border: transparent;
@@ -34,7 +34,7 @@ h1{
     justify-content: center;
     align-items: center;
     width: 380px;
-    height: 400px;
+    height: 440px;
     background-color: white;
     overflow: hidden;
     border: 2px solid #6578b0;

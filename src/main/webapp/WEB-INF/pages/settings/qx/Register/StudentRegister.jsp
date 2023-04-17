@@ -98,6 +98,7 @@
             <span>女</span><input type="radio" name="gender" value="female">
             <br><br>
             <span id="msgForStu" style="color:red"></span>
+            <br>
             <button id="registerBtnForStu">注册</button>
             <br><br><a href="settings/qx/Register/toTeaRegister.do">教师注册</a>
         </div>

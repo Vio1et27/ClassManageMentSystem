@@ -3,6 +3,7 @@ package com.cdy.cms.workbench.service;
 import com.cdy.cms.workbench.pojo.Course;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CourseService {
     List<Course> queryAllCourses();
@@ -11,7 +12,13 @@ public interface CourseService {
 
     List<Course> queryAllCoursesForStu(String students);
 
-    Course appointCourseForStu(String curriculum);
+    int appointCourseForStu(String classroomName[],String students);
 
+    List<Course> selectCourseByConditionForPage(Map<String,Object> map);
 
+    int queryCountOfCourseByCondition(Map<String,Object> map);
+
+    List<Course> selectCourseByName(Map<String,Object> map);
+
+    int queryCountOfCourseByName(Map<String,Object> map);
 }

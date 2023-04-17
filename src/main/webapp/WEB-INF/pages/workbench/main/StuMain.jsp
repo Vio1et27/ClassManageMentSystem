@@ -16,6 +16,17 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForStuMain.css">
     <link rel="stylesheet" href="Font/css/all.css">
+
+    <script>
+        $(function (){
+
+
+
+
+
+
+        })
+    </script>
 </head>
 <body>
 <div class="topbar-wapper">
@@ -26,13 +37,13 @@
                 教室管理系统
             </li>
             <li>
-                <a href="">课程管理</a>
+                <a href="workbench/ShowInfo/toCourseFormForStu.do">课程管理</a>
             </li>
             <li>
                 <a href="">教室信息</a>
             </li>
             <li class="stuDetails">
-                <a href="javascript:;" >学生个人信息</a>
+                <a href="settings/qx/Login/toStuMain.do" >学生个人信息</a>
             </li>
             <li>
                 <a href="">教师信息</a>
@@ -47,7 +58,7 @@
                 </div>
             </li>
             <li>
-                wqcs
+                ${sessionScope.sessionStudent.fullName}
             </li>
         </ul>
     </div>
@@ -64,22 +75,22 @@
         </div>
         <ul>
             <li>姓名：
-                <div>cd</div>
+                <div id="stuName">${sessionScope.sessionStudent.fullName}</div>
             </li>
             <li>学号：
-                <div>111</div>
+                <div id="stuNum">${sessionScope.sessionStudent.studentNumber}</div>
             </li>
             <li>性别：
-                <div>nv</div>
+                <div id="stuGender">${sessionScope.sessionStudent.gender}</div>
             </li>
             <li>年龄：
-                <div>3</div>
+                <div id="stuAge">${sessionScope.sessionStudent.age}</div>
             </li>
-            <li>创建时间：
-                <div>hhh</div>
+            <li>创建信息时间：
+                <div id="stuCreateDate">${sessionScope.sessionStudent.createTime}</div>
             </li>
-            <li>更新时间：
-                <div>hhh</div>
+            <li>更新信息时间：
+                <div id="stuUpdateDate">${sessionScope.sessionStudent.updateTime}</div>
             </li>
         </ul>
     </div>

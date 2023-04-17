@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CourseSeviceImpl implements CourseService {
@@ -29,7 +30,27 @@ public class CourseSeviceImpl implements CourseService {
     }
 
     @Override
-    public Course appointCourseForStu(String curriculum) {
-        return courseMapper.appointCourseForStu(curriculum);
+    public int appointCourseForStu(String classroomName[], String students) {
+        return courseMapper.appointCourseForStu(classroomName,students);
+    }
+
+    @Override
+    public List<Course> selectCourseByConditionForPage(Map<String, Object> map) {
+        return courseMapper.selectCourseByConditionForPage(map);
+    }
+
+    @Override
+    public int queryCountOfCourseByCondition(Map<String, Object> map) {
+        return courseMapper.selectCountOfCourseByCondition(map);
+    }
+
+    @Override
+    public List<Course> selectCourseByName(Map<String, Object> map) {
+        return courseMapper.selectCourseByName(map);
+    }
+
+    @Override
+    public int queryCountOfCourseByName(Map<String, Object> map) {
+        return courseMapper.selectCountOfCourseByName(map);
     }
 }

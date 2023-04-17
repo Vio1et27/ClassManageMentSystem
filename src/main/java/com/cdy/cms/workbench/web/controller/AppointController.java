@@ -104,15 +104,29 @@ public class AppointController {
 
     /**
      * 学生选课功能,根据课程名字选择
-     * @param curriculum
+     * @param classroomName
      * @param session
      * @return
      */
     @RequestMapping("/workbench/AppointClassroom/appointCourseForStu.do")
-    public String appointCourseForStu(String curriculum,HttpSession session){
-        Course course = courseService.appointCourseForStu(curriculum);
-        course.setStudents(((Student)session.getAttribute(Contants.SESSION_STUDENT)).getFullName());
-        return "workbench/AppointClassroom/appointForStu";
+    public @ResponseBody Object appointCourseForStu(String classroomName[],HttpSession session){
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            int cnt = courseService.appointCourseForStu(classroomName
+                    ,((Student)session.getAttribute(Contants.SESSION_STUDENT)).getFullName());
+            if(cnt > 0){
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+                System.out.println("预约成功!");
+            }else{
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙,请稍后重试...");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙,请稍后重试...");
+        }
+        return returnObject;
     }
 
 }
