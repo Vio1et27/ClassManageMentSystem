@@ -53,4 +53,29 @@ public class CourseSeviceImpl implements CourseService {
     public int queryCountOfCourseByName(Map<String, Object> map) {
         return courseMapper.selectCountOfCourseByName(map);
     }
+
+    @Override
+    public Course queryCourseByClassroomName(String classroomName) {
+        return courseMapper.queryCourseByClassroomName(classroomName);
+    }
+
+    @Override
+    public List<Course> selectCourseByCreateBy(Map<String, Object> map) {
+        return courseMapper.selectCourseByCreateBy(map);
+    }
+
+    @Override
+    public int queryCountOfCourseByCreateBy(Map<String, Object> map) {
+        return courseMapper.selectCountOfCourseByCreateBy(map);
+    }
+
+    @Override
+    public int insertAppointCourse(Course course) {
+        return courseMapper.insert(course);
+    }
+
+    @Override
+    public Course returnEditInfoByName(String classroomName) {
+        return courseMapper.returnEditInfoByName(classroomName);
+    }
 }

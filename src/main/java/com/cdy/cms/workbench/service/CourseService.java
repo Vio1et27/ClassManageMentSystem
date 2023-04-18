@@ -21,4 +21,14 @@ public interface CourseService {
     List<Course> selectCourseByName(Map<String,Object> map);
 
     int queryCountOfCourseByName(Map<String,Object> map);
+
+    Course queryCourseByClassroomName(String classroomName);
+
+    List<Course> selectCourseByCreateBy(Map<String,Object> map);
+
+    int queryCountOfCourseByCreateBy(Map<String,Object> map);
+
+    int insertAppointCourse(Course course);
+
+    Course returnEditInfoByName(String classroomName);
 }

@@ -20,6 +20,7 @@
         .search span{
             margin-left:1.5%;
             margin-right: 2px;
+            letter-spacing: 1px;
         }
         .search input{
             height: 20px;
@@ -150,7 +151,7 @@
                             showRowsPerPage:true,
                             showRowsInfo:true,
                             onChangePage: function(event,pageObj) {
-                                queryCourseByConditionForPage(pageObj.currentPage,pageObj.rowsPerPage);
+                                queryCourseByName(pageObj.currentPage,pageObj.rowsPerPage);
                             }
                         });
                     }
@@ -236,7 +237,7 @@
                 <a href="workbench/ShowInfo/toCourseFormForStu.do">课程管理</a>
             </li>
             <li>
-                <a href="">教室信息</a>
+                <a href="workbench/ShowInfo/toClassRoomInfoForStu.do">教室信息</a>
             </li>
             <li>
                 <a href="settings/qx/Login/toStuMain.do">学生个人信息</a>

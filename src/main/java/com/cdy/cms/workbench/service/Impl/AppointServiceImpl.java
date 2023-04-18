@@ -6,6 +6,8 @@ import com.cdy.cms.workbench.service.AppointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class AppointServiceImpl implements AppointService {
     @Autowired
@@ -17,13 +19,14 @@ public class AppointServiceImpl implements AppointService {
     }
 
     @Override
-    public int deleteAppointClass(String[] id) {
-        return courseMapper.deleteAppointClass(id);
+    public int deleteAppointClass(String[] classroomName) {
+        return courseMapper.deleteAppointClass(classroomName);
     }
 
     @Override
-    public int updateAppointClass(Course course) {
-        return courseMapper.updateAppointClass(course);
+    public int updateAppointClass(String classroomName, String curriculum,
+                                  String startDate, String endDate, String oldName, Date date) {
+        return courseMapper.updateAppointClass(classroomName,curriculum,startDate,endDate,oldName,date);
     }
 
 

@@ -111,7 +111,7 @@
       This element was generated on Thu Apr 13 23:53:27 CST 2023.
     -->
     update classroom_information
-    <set >
+    <set>
       <if test="classroomName != null" >
         classroom_name = #{classroomName,jdbcType=VARCHAR},
       </if>
@@ -164,10 +164,116 @@
     where corresponding_courses = #{correspondingCourses,jdbcType=VARCHAR}
   </select>
 
-  <select id="queryAllClassrooms" resultMap="BaseResultMap">
+
+  <!--classroom_name = #{classroomName,jdbcType=VARCHAR},
+  capacity = #{capacity,jdbcType=VARCHAR},
+  classroom_location = #{classroomLocation,jdbcType=VARCHAR},
+  classroom_environment = #{classroomEnvironment,jdbcType=VARCHAR},
+  corresponding_courses = #{correspondingCourses,jdbcType=VARCHAR}
+  where classroom_information_id = #{classroomInformationId,jdbcType=CHAR}-->
+  <select id="selectClassroomByConditionForPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from classroom_information
+    <where>
+      <if test="classroomLocation!=null and classroomLocation!=''">
+        and classroom_location like '%' #{classroomLocation} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="capacity!=null and capacity!=''">
+        and capacity&gt;=#{capacity}
+      </if>
+      <if test="classroomEnvironment!=null and classroomEnvironment!=''">
+        and classroom_environment like '%' #{classroomEnvironment} '%'
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="queryCountOfClassroomByCondition" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from classroom_information
+    <where>
+      <if test="classroomLocation!=null and classroomLocation!=''">
+        and classroom_location like '%' #{classroomLocation} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="capacity!=null and capacity!=''">
+        and capacity&gt;=#{capacity}
+      </if>
+      <if test="classroomEnvironment!=null and classroomEnvironment!=''">
+        and classroom_environment like '%' #{classroomEnvironment} '%'
+      </if>
+    </where>
+  </select>
+
+  <select id="selectClassroomByName" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from classroom_information
+    <where>
+      <if test="classroomLocation!=null and classroomLocation!=''">
+        and classroom_location like '%' #{classroomLocation} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="capacity!=null and capacity!=''">
+        and capacity&gt;=#{capacity}
+      </if>
+      <if test="classroomEnvironment!=null and classroomEnvironment!=''">
+        and classroom_environment like '%' #{classroomEnvironment} '%'
+      </if>
+      <if test="true">
+        and students = #{students}
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="queryCountOfClassroomByName" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from classroom_information
+    <where>
+      <if test="classroomLocation!=null and classroomLocation!=''">
+        and classroom_location like '%' #{classroomLocation} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="capacity!=null and capacity!=''">
+        and capacity&gt;=#{capacity}
+      </if>
+      <if test="classroomEnvironment!=null and classroomEnvironment!=''">
+        and classroom_environment like '%' #{classroomEnvironment} '%'
+      </if>
+      <if test="true">
+        and students = #{students}
+      </if>
+    </where>
+  </select>
+
+  <select id="showClassroomDetailsForStudent" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from classroom_information
+    where classroom_name = #{classroomName,jdbcType=VARCHAR}
+  </select>
+
+
+  <select id="queryAllEmptyClassrooms" resultMap="BaseResultMap">
 
     select
     <include refid="Base_Column_List" />
     from classroom_information
+    where corresponding_courses is null
   </select>
+
+  <update id="updateClassroomCourse" parameterType="java.lang.String">
+    update classroom_information
+    set corresponding_courses = #{correspondingCourses,jdbcType=VARCHAR}
+    where classroom_name = #{classroomName,jdbcType=VARCHAR}
+  </update>
 </mapper>

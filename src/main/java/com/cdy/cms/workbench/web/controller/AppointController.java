@@ -53,8 +53,8 @@ public class AppointController {
 
     //删除预约教室，提供删除方法（delete）
     @RequestMapping("/workbench/AppointClassroom/deleteAppointClass.do")
-    public @ResponseBody Object deleteAppointClass(String id[]){
-        int cnt = appointService.deleteAppointClass(id);
+    public @ResponseBody Object deleteAppointClass(String classroomName[]){
+        int cnt = appointService.deleteAppointClass(classroomName);
         ReturnObject returnObject = new ReturnObject();
         try {
             if(cnt > 0){
@@ -72,9 +72,21 @@ public class AppointController {
     }
     //修改预约教室，提供修改方法（update）
     @RequestMapping("/workbench/AppointClassroom/updateAppointClass.do")
-    public @ResponseBody Object updateAppointClass(Course course){
-        course.setUpdateTime(new Date());
-        int cnt = appointService.updateAppointClass(course);
+    public @ResponseBody Object updateAppointClass(String classroomName,String curriculum,
+                                                   String startDate,String endDate,String oldName){
+        /*Course course = new Course();
+        course.setClassroomName(classroomName);
+        course.setCurriculum(curriculum);
+        course.setStartDate(startDate);
+        course.setEndDate(endDate);
+        course.setUpdateTime(new Date());*/
+        /*classroomName: classroomName,
+                curriculum: classroomCourse,
+                startDate: classroomStartDate,
+                endDate: classroomEndDate,
+                oldName:oldName,*/
+        Date date = new Date();
+        int cnt = appointService.updateAppointClass(classroomName,curriculum,startDate,endDate,oldName,date);
         ReturnObject returnObject = new ReturnObject();
         try {
             if(cnt > 0){
@@ -129,4 +141,9 @@ public class AppointController {
         return returnObject;
     }
 
+    @RequestMapping("/workbench/activity/returnEditInfoByName.do")
+    public @ResponseBody Object returnEditInfoByName(String classroomName){
+        Course course = courseService.returnEditInfoByName(classroomName);
+        return course;
+    }
 }

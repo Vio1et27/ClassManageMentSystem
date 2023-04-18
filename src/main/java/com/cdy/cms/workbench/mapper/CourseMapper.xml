@@ -16,6 +16,7 @@
     <result column="end_date" property="endDate" jdbcType="CHAR" />
     <result column="create_by" property="createBy" jdbcType="VARCHAR" />
     <result column="students" property="students" jdbcType="VARCHAR" />
+
   </resultMap>
   <sql id="Base_Column_List" >
     <!--
@@ -44,7 +45,12 @@
       This element was generated on Sat Apr 15 14:23:15 CST 2023.
     -->
     delete from course_management
-    where course_management_id = #{courseManagementId,jdbcType=CHAR}
+    where classroom_name in
+    <foreach collection="array" item="classroomName" separator="," open="(" close=")">
+    #{classroomName}
+    </foreach>
+
+
   </delete>
   <insert id="insert" parameterType="com.cdy.cms.workbench.pojo.Course" >
     <!--
@@ -54,11 +60,11 @@
     -->
     insert into course_management (course_management_id, curriculum, create_time, 
       update_time, classroom_name, start_date, 
-      end_date, create_by, students
+      end_date, create_by
       )
     values (#{courseManagementId,jdbcType=CHAR}, #{curriculum,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{classroomName,jdbcType=VARCHAR}, #{startDate,jdbcType=CHAR}, 
-      #{endDate,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, #{students,jdbcType=VARCHAR}
+      #{endDate,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cdy.cms.workbench.pojo.Course" >
@@ -170,14 +176,11 @@
     -->
     update course_management
     set curriculum = #{curriculum,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      classroom_name = #{classroomName,jdbcType=VARCHAR},
+      classroom_name = #{param1},
       start_date = #{startDate,jdbcType=CHAR},
       end_date = #{endDate,jdbcType=CHAR},
-      create_by = #{createBy,jdbcType=VARCHAR},
-      students = #{students,jdbcType=VARCHAR}
-    where course_management_id = #{courseManagementId,jdbcType=CHAR}
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where classroom_name = #{param5}
   </update>
 
   <select id="queryAllCourses" resultMap="BaseResultMap">
@@ -309,5 +312,70 @@
         and students = #{students}
       </if>
     </where>
+  </select>
+
+  <select id="queryCourseByClassroomName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from course_management
+    where classroom_name = #{classroomName,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectCourseByCreateBy" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from course_management
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+      <if test="true">
+        and create_by = #{createBy}
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="selectCountOfCourseByCreateBy" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from course_management
+    <where>
+      <if test="curriculum!=null and curriculum!=''">
+        and curriculum like '%' #{curriculum} '%'
+      </if>
+      <if test="classroomName!=null and classroomName!=''">
+        and classroom_name like '%' #{classroomName} '%'
+      </if>
+      <if test="startDate!=null and startDate!=''">
+        and start_date&gt;=#{startDate}
+      </if>
+      <if test="endDate!=null and endDate!=''">
+        and end_date&lt;=#{endDate}
+      </if>
+      <if test="createBy!=null and createBy!=''">
+        and create_by like '%' #{createBy} '%'
+      </if>
+      <if test="true">
+        and create_by = #{createBy}
+      </if>
+    </where>
+  </select>
+
+  <select id="returnEditInfoByName"  resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from course_management
+    where classroom_name = #{classroomName,jdbcType=VARCHAR}
   </select>
 </mapper>

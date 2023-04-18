@@ -59,4 +59,9 @@ public class ClassRoomInfoForTeaController {
         request.setAttribute("classRoomListForTea",classroomList);
         return "workbench/ShowInfo/ClassRoomInfoForTea";
     }
+
+    @RequestMapping("/workbench/ShowInfo/toClassRoomInfoForTea.do")
+    public String toClassRoomInfoForTea(){
+        return "workbench/ShowInfo/ClassRoomInfoForTea";
+    }
 }

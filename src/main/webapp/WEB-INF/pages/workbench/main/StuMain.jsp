@@ -40,7 +40,7 @@
                 <a href="workbench/ShowInfo/toCourseFormForStu.do">课程管理</a>
             </li>
             <li>
-                <a href="">教室信息</a>
+                <a href="workbench/ShowInfo/toClassRoomInfoForStu.do">教室信息</a>
             </li>
             <li class="stuDetails">
                 <a href="settings/qx/Login/toStuMain.do" >学生个人信息</a>
