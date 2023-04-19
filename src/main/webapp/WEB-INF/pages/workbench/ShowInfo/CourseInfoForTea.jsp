@@ -1,3 +1,6 @@
+<%@ page import="com.cdy.cms.workbench.pojo.Classroom" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -57,6 +60,29 @@
 
         .modal ul li input {
             border: 1px solid rgba(0, 0, 0, .4);
+        }
+        .right:hover .downlist{
+            height: 60px;
+        }
+        .downlist{
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100px;
+            height: 0px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            background-color: white;
+            transition: height 0.3s;
+            overflow: hidden;
+            text-align: center;
+        }
+        .downlist a:hover{
+            color: #859fd9;
+        }
+        .downlist a:active{
+            color: crimson;
+            font-size: large;
         }
     </style>
 
@@ -257,6 +283,7 @@
                         dataType: 'json',
                         success: function (data) {
                             if (data.code == "1") {
+                                turnOffCourseBtn();
                                 queryCourseByConditionForPage(1, $("#demo_pag1").bs_pagination('getOption', 'rowsPerPage'));
                             } else {
                                 $("#msgError").text(data.message);
@@ -363,7 +390,7 @@
                     dataType: 'json',
                     success: function (data) {
                         if (data.code == "1") {
-                            //turnOffCourseBtnUpdate();
+                            turnOffCourseBtnUpdate();
                             queryCourseByConditionForPage(1, $("#demo_pag1").bs_pagination('getOption', 'rowsPerPage'));
                         } else {
                             $("#msgErrorUpdate").text(data.message);
@@ -391,7 +418,7 @@
 </head>
 <body>
 <div class="topbar-wapper">
-    <div class="topbar w">
+    <div class="topbar w clearfix">
         <ul class="left">
             <li class="cmms">
                 <i class="fas fa-school"></i>
@@ -413,7 +440,10 @@
                 <a href="settings/qx/Login/toTeaMain.do">主页</a>
             </li>
         </ul>
-        <ul class="right">
+        <ul class="right" style="position: relative;">
+            <li class="downlist">
+                <a href="">退出登录</a>
+            </li>
             <li>
                 <div class="portrait"></div>
             </li>
@@ -488,12 +518,21 @@
             border-top: #859fd9 1px solid;
             width: 92%;">
             <li>教室名：
-               <%-- <select style="width:28%;" id="create-classroomName">
-                    <c:forEach items="${emptyclassrooms}" var="obj">
-                        <option value="${obj.classroominformationid}">${obj.classroomname}</option>
+                <%--<select style="width:28%;" id="create-classroomName">
+                    <c:forEach items="${emptyclassrooms}" var="room">
+                        <option>${room.classroomname}</option>
                     </c:forEach>
                 </select>--%>
-                <input type="text" id="create-classroomName">
+<%--                <input type="text" id="create-classroomName">--%>
+                <select id="create-classroomName">
+                    <%
+                        List<String> classroomList = (ArrayList<String>)request.getAttribute("emptyclassrooms");
+                        for (String classroom : classroomList) { %>
+                    <option><%=classroom%></option>
+                    <%
+                        }
+                    %>
+                </select>
             </li>
             <li>课程名：
                 <input type="text" id="create-classroomCourse">
@@ -531,7 +570,7 @@
             margin-left: 20px;
             margin-bottom: 10px;
             letter-spacing: 2px;">
-            创建课程
+            更新课程
         </div>
         <ul style="float:left;padding: 30px 20px;
             border-top: #859fd9 1px solid;
@@ -542,7 +581,15 @@
                          <option value="${obj.classroominformationid}">${obj.classroomname}</option>
                      </c:forEach>
                  </select>--%>
-                <input type="text" id="update-classroomName">
+                <select id="update-classroomName">
+                    <%
+                        List<String> classroomListUpdate = (ArrayList<String>)request.getAttribute("emptyclassrooms");
+                        for (String classroom : classroomListUpdate) { %>
+                    <option><%=classroom%></option>
+                    <%
+                        }
+                    %>
+                </select>
             </li>
             <li>课程名：
                 <input type="text" id="update-classroomCourse">

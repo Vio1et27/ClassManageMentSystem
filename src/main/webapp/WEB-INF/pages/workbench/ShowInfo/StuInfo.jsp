@@ -13,19 +13,44 @@
     <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
     <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生主页</title>
+    <title>学生个人信息</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForTeaInfo.css">
     <link rel="stylesheet" href="Font/css/all.css">
     <link rel="icon" href="Font/favicon.ico">
 
+    <style>
+        .right:hover .downlist{
+            height: 60px;
+        }
+        .downlist{
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100px;
+            height: 0px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            background-color: white;
+            transition: height 0.3s;
+            overflow: hidden;
+            text-align: center;
+        }
+        .downlist a:hover{
+            color: #859fd9;
+        }
+        .downlist a:active{
+            color: crimson;
+            font-size: large;
+        }
+    </style>
     <script type="text/javascript">
 
     </script>
 </head>
 <body>
 <div class="topbar-wapper">
-    <div class="topbar w">
+    <div class="topbar w clearfix">
         <ul class="left">
             <li class="cmms">
                 <i class="fas fa-school"></i>
@@ -47,7 +72,10 @@
                 <a href="settings/qx/Login/toStuMain.do">主页</a>
             </li>
         </ul>
-        <ul class="right">
+        <ul class="right" style="position: relative;">
+            <li class="downlist">
+                <a href="">退出登录</a>
+            </li>
             <li>
                 <div class="portrait">
                 </div>

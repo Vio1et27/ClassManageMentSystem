@@ -7,6 +7,7 @@ import com.cdy.cms.settings.pojo.Student;
 import com.cdy.cms.settings.pojo.Teacher;
 import com.cdy.cms.workbench.pojo.Course;
 import com.cdy.cms.workbench.service.AppointService;
+import com.cdy.cms.workbench.service.ClassRoomService;
 import com.cdy.cms.workbench.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,9 @@ public class AppointController {
 
     @Autowired
     private CourseService courseService;
+
+    @Autowired
+    private ClassRoomService classRoomService;
     //预约教室，提供预约教室（insert）创建预约方法
 
     //这是给老师用来创建课程的
@@ -54,7 +58,9 @@ public class AppointController {
     //删除预约教室，提供删除方法（delete）
     @RequestMapping("/workbench/AppointClassroom/deleteAppointClass.do")
     public @ResponseBody Object deleteAppointClass(String classroomName[]){
-        int cnt = appointService.deleteAppointClass(classroomName);
+        //删除后将原来教室的课程删除
+        int cnt = classRoomService.deleteClassrooomCourse(classroomName);
+        cnt+= appointService.deleteAppointClass(classroomName);
         ReturnObject returnObject = new ReturnObject();
         try {
             if(cnt > 0){
@@ -87,6 +93,10 @@ public class AppointController {
                 oldName:oldName,*/
         Date date = new Date();
         int cnt = appointService.updateAppointClass(classroomName,curriculum,startDate,endDate,oldName,date);
+        //更新后将原来教室的课程删除
+        cnt+=classRoomService.deleteClassrooomOneCourse(oldName);
+        //并且将更新后的课程设置为更新后的教室
+        cnt+=classRoomService.changeOldClassroomCourse(classroomName,curriculum);
         ReturnObject returnObject = new ReturnObject();
         try {
             if(cnt > 0){

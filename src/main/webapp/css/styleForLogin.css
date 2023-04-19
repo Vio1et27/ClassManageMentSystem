@@ -4,7 +4,8 @@
     box-sizing:border-box;
 }
 body,html{
-    background-image: url("/image/5555.jpg");
+    background-image: url("../image/5555.jpg");
+    background-size: cover;
     background-color: #e0d5d3;
     /* 锁定背景 */
     background-attachment: fixed;

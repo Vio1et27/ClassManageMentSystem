@@ -74,4 +74,10 @@ public interface ClassroomMapper {
     List<Classroom> queryAllEmptyClassrooms();
 
     int updateClassroomCourse(@Param("correspondingCourses")String correspondingCourses,@Param("classroomName")String classroomName);
+
+    int deleteClassrooomCourse(String classroomName[]);
+
+    int deleteClassrooomOneCourse(@Param("classroomName")String oldName);
+
+    int changeOldClassroomCourse(@Param("classroomName")String classroomName,@Param("correspondingCourses")String correspondingCourses);
 }

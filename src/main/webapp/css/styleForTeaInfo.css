@@ -70,7 +70,7 @@ a {
     margin: 5px 6px;
     height: 40px;
     width: 40px;
-    background-image: url(../img/portrait.png);
+    background-image: url(../image/portrait.png);
     background-size: cover;
     border-radius: 50%;
     transition: 0.2s;

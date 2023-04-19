@@ -31,4 +31,10 @@ public interface ClassRoomService {
     List<Classroom> queryAllEmptyClassrooms();
 
     int updateClassroomCourse(String correspondingCourses,String classroomName);
+
+    int deleteClassrooomCourse(String classroomName[]);
+
+    int deleteClassrooomOneCourse(String oldName);
+
+    int changeOldClassroomCourse(String classroomName,String correspondingCourses);
 }

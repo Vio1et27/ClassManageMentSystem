@@ -67,4 +67,19 @@ public class ClassRoomServiceImpl implements ClassRoomService {
     public int updateClassroomCourse(String correspondingCourses, String classroomName) {
         return classroomMapper.updateClassroomCourse(correspondingCourses,classroomName);
     }
+
+    @Override
+    public int deleteClassrooomCourse(String[] classroomName) {
+        return classroomMapper.deleteClassrooomCourse(classroomName);
+    }
+
+    @Override
+    public int deleteClassrooomOneCourse(String classroomName) {
+        return classroomMapper.deleteClassrooomOneCourse(classroomName);
+    }
+
+    @Override
+    public int changeOldClassroomCourse(String classroomName, String correspondingCourses) {
+        return classroomMapper.changeOldClassroomCourse(classroomName,correspondingCourses);
+    }
 }

@@ -1,4 +1,6 @@
 body{
+    background-image: url("../image/5555.jpg");
+    background-size:cover;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
