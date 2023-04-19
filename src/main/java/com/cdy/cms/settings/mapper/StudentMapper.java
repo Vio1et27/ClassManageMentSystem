@@ -1,7 +1,9 @@
 package com.cdy.cms.settings.mapper;
 
 import com.cdy.cms.settings.pojo.Student;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 public interface StudentMapper {
@@ -55,5 +57,9 @@ public interface StudentMapper {
 
     Student queryUserByStunNumAndPwd(Map<String,Object> map);
 
-    Student selectByStudentFullName(String fullName);
+    Student selectByStudentFullName(@Param("fullName") String fullName);
+
+    List<Student> selectStuByConditionForPage(Map<String,Object> map);
+
+    int queryCountOfStuByCondition(Map<String,Object> map);
 }

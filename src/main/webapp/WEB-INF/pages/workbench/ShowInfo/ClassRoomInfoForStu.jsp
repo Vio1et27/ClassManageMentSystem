@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForClassRoomInfoForStu.css">
     <link rel="stylesheet" href="Font/css/all.css">
+    <link rel="icon" href="Font/favicon.ico">
 <style>
     .search span{
         margin-left:1.5%;
@@ -181,13 +182,13 @@
                 <a href="workbench/ShowInfo/toClassRoomInfoForStu.do">教室信息</a>
             </li>
             <li>
-                <a href="settings/qx/Login/toStuMain.do" >学生个人信息</a>
+                <a href="workbench/ShowInfo/toStuInfo.do" >学生个人信息</a>
             </li>
             <li>
-                <a href="">教师信息</a>
+                <a href="workbench/ShowInfo/toTeaInfoForStu.do">教师信息</a>
             </li>
             <li>
-                <a href="">主页</a>
+                <a href="settings/qx/Login/toStuMain.do">主页</a>
             </li>
         </ul>
         <ul class="right">

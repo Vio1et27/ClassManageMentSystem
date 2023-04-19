@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForCourseInfoForTea.css">
     <link rel="stylesheet" href="Font/css/all.css">
+    <link rel="icon" href="Font/favicon.ico">
     <style>
         .search span {
             margin-left: 1.5%;
@@ -403,13 +404,13 @@
                 <a href="workbench/ShowInfo/toClassRoomInfoForTea.do">教室信息</a>
             </li>
             <li>
-                <a href="settings/qx/Login/toTeaMain.do">教师个人信息</a>
+                <a href="workbench/ShowInfo/toTeaInfo.do">教师个人信息</a>
             </li>
             <li>
-                <a href="">学生信息</a>
+                <a href="workbench/ShowInfo/toStuInfoForTea.do">学生信息</a>
             </li>
             <li>
-                <a href="">主页</a>
+                <a href="settings/qx/Login/toTeaMain.do">主页</a>
             </li>
         </ul>
         <ul class="right">

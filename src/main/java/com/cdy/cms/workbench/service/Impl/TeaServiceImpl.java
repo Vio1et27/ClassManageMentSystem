@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class TeaServiceImpl implements TeaService {
@@ -21,5 +22,15 @@ public class TeaServiceImpl implements TeaService {
     @Override
     public Teacher queryTeacherInfoByName(String fullName) {
         return teacherMapper.selectByTeacherFullName(fullName);
+    }
+
+    @Override
+    public List<Teacher> selectTeaByConditionForPage(Map<String, Object> map) {
+        return teacherMapper.selectTeaByConditionForPage(map);
+    }
+
+    @Override
+    public int queryCountOfTeaByCondition(Map<String, Object> map) {
+        return teacherMapper.queryCountOfTeaByCondition(map);
     }
 }

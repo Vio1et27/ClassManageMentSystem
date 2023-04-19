@@ -15,6 +15,7 @@
     <title>注册</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForRegister.css">
+    <link rel="icon" href="Font/favicon.ico">
     <script type="text/javascript">
         $(function () {
 

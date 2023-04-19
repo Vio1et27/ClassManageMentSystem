@@ -15,6 +15,7 @@
     <title>教室管理系统用户登录</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleForLogin.css">
+    <link rel="icon" href="Font/favicon.ico">
     <script type="text/javascript">
         $(function () {
 

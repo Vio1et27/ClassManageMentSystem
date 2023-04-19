@@ -26,4 +26,9 @@ public class TeaInfoController {
                 (((Teacher)session.getAttribute(Contants.SESSION_TEACHER)).getTeacherId());
         return teacher;
     }
+
+    @RequestMapping("/workbench/ShowInfo/toTeaInfo.do")
+    public String toTeaInfo(){
+        return "workbench/ShowInfo/TeaInfo";
+    }
 }

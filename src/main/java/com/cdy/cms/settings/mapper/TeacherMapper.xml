@@ -196,4 +196,43 @@
     from teacher
     where full_name = #{fullName,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectTeaByConditionForPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from teacher
+    <where>
+      <if test="fullName!=null and fullName!=''">
+        and full_name like '%' #{fullName} '%'
+      </if>
+      <if test="teacherJobNumber!=null and teacherJobNumber!=''">
+        and teacher_job_number like '%' #{teacherJobNumber} '%'
+      </if>
+      <if test="gender!=null and gender!=''">
+        and gender like '%' #{gender} '%'
+      </if>
+      <if test="position!=null and position!=''">
+        and position like '%' #{position} '%'
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="queryCountOfTeaByCondition" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from teacher
+    <where>
+      <if test="fullName!=null and fullName!=''">
+        and full_name like '%' #{fullName} '%'
+      </if>
+      <if test="teacherJobNumber!=null and teacherJobNumber!=''">
+        and teacher_job_number like '%' #{teacherJobNumber} '%'
+      </if>
+      <if test="gender!=null and gender!=''">
+        and gender like '%' #{gender} '%'
+      </if>
+      <if test="position!=null and position!=''">
+        and position like '%' #{position} '%'
+      </if>
+    </where>
+  </select>
 </mapper>

@@ -26,4 +26,9 @@ public class StuInfoController {
                 (((Student)session.getAttribute(Contants.SESSION_STUDENT)).getStudentId());
         return student;
     }
+
+    @RequestMapping("/workbench/ShowInfo/toStuInfo.do")
+    public String toStuInfo(){
+        return "workbench/ShowInfo/StuInfo";
+    }
 }

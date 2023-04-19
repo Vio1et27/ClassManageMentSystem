@@ -1,5 +1,5 @@
 body{
-    min-width: 1226px;
+    min-width: 1264px;
     color: #333;
     font-size: 16px;
     background-color: rgb(220, 220, 234);
@@ -90,27 +90,70 @@ a {
     color:#e0d5d3;
 }
 
+.head-wrapper{
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #859fd9;
+    background-color: rgba(241, 241, 249,.5);
+    padding-left: 10%;
+    z-index: 888;
+}
+.head{
+    font-size: 20px;
+}
+.head h1{
+    letter-spacing: 3px;
+}
+
 .main-wrapper{
     position: relative;
-    top: 50px;
+    top: 120px;
     left: 0;
     right: 0;
     margin: 30px auto;
     height: auto;
-    z-index: 888;
+
 }
 .main{
-    position: absolute;
     padding-top: 10px;
     padding-bottom: 30px;
-    margin: 0 auto;
-    height: 100%;
+    height: auto;
     width: 80%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
     background-color: white;
     border-radius: 10px;
 }
+.main .myDetails{
+    padding: 10px;
+    font-size: 18px;
+    width: fit-content;
+    border-radius: 3px;
+    border: #859fd9 2px dotted;
+    background-color: #c2c9d8;
+    letter-spacing: 2px;
+    margin:20px 3%;
+}
+table{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid #333;
+    border-collapse: collapse;
+}
+table .first{
+    color: #0b2983;
+}
 
-
-
-
+td{
+    text-align: center;
+    padding: 14px 0;
+    border: #333 1px solid;
+    letter-spacing: 2px;
+}
+td:hover{
+    background-color: #eeeef0;
+}

@@ -2,6 +2,7 @@ package com.cdy.cms.settings.mapper;
 
 import com.cdy.cms.settings.pojo.Teacher;
 
+import java.util.List;
 import java.util.Map;
 
 public interface TeacherMapper {
@@ -56,4 +57,8 @@ public interface TeacherMapper {
     Teacher queryUserByJobNumAndPwd(Map<String,Object> map);
 
     Teacher selectByTeacherFullName(String fullName);
+
+    List<Teacher> selectTeaByConditionForPage(Map<String,Object> map);
+
+    int queryCountOfTeaByCondition(Map<String,Object> map);
 }

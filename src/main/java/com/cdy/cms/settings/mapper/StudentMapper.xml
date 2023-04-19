@@ -191,4 +191,43 @@
     from student
     where full_name = #{fullName,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectStuByConditionForPage" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from student
+    <where>
+      <if test="fullName!=null and fullName!=''">
+        and full_name like '%' #{fullName} '%'
+      </if>
+      <if test="studentNumber!=null and studentNumber!=''">
+        and student_number like '%' #{studentNumber} '%'
+      </if>
+      <if test="gender!=null and gender!=''">
+        and gender like '%' #{gender} '%'
+      </if>
+      <if test="age!=null and age!=''">
+        and age like '%' #{age} '%'
+      </if>
+    </where>
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="queryCountOfStuByCondition" parameterType="map" resultType="java.lang.Integer">
+    select count(*)
+    from student
+    <where>
+      <if test="fullName!=null and fullName!=''">
+        and full_name like '%' #{fullName} '%'
+      </if>
+      <if test="studentNumber!=null and studentNumber!=''">
+        and student_number like '%' #{studentNumber} '%'
+      </if>
+      <if test="gender!=null and gender!=''">
+        and gender like '%' #{gender} '%'
+      </if>
+      <if test="age!=null and age!=''">
+        and age like '%' #{age} '%'
+      </if>
+    </where>
+  </select>
 </mapper>
