@@ -87,7 +87,7 @@
         </ul>
     </div>
 </div>
-<div class="head-wrapper">
+<div class="head-wrapper w">
     <div class="head w">
         <h1>欢迎来到教室管理系统！</h1>
     </div>
