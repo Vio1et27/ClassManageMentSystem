@@ -68,14 +68,14 @@ public class LoginController {
                 //登录成功，判断是否选择十天免登录
                 if("true".equals(isRemPwdForTea)){
                     Cookie c1 = new Cookie("teacherJobNumber", teacherJobNumber);
-                    Cookie c2 = new Cookie("loginPwd", loginPwd);
+                    Cookie c2 = new Cookie("loginPwdForTea", loginPwd);
                     c1.setMaxAge(10*24*60*60);
                     c2.setMaxAge(10*24*60*60);
                     response.addCookie(c1);
                     response.addCookie(c2);
                 }else{
                     Cookie c1 = new Cookie("teacherJobNumber", teacherJobNumber);
-                    Cookie c2 = new Cookie("loginPwd", loginPwd);
+                    Cookie c2 = new Cookie("loginPwdForTea", loginPwd);
                     c1.setMaxAge(0);
                     c2.setMaxAge(0);
                     response.addCookie(c1);
@@ -113,14 +113,14 @@ public class LoginController {
                 //登录成功，判断是否选择十天免登录
                 if("true".equals(isRemPwdForStu)){
                     Cookie c1 = new Cookie("studentNumber", studentNumber);
-                    Cookie c2 = new Cookie("loginPwd", loginPwd);
+                    Cookie c2 = new Cookie("loginPwdForStu", loginPwd);
                     c1.setMaxAge(10*24*60*60);
                     c2.setMaxAge(10*24*60*60);
                     response.addCookie(c1);
                     response.addCookie(c2);
                 }else{
                     Cookie c1 = new Cookie("studentNumber", studentNumber);
-                    Cookie c2 = new Cookie("loginPwd", loginPwd);
+                    Cookie c2 = new Cookie("loginPwdForStu", loginPwd);
                     c1.setMaxAge(0);
                     c2.setMaxAge(0);
                     response.addCookie(c1);

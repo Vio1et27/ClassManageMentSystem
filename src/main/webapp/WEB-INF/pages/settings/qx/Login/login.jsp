@@ -61,6 +61,7 @@
                 var teacherJobNumber = $.trim($("#teacherJobNumber").val());
                 var teaPwd = $.trim($("#teaPwd").val());
                 var isRemPwdForTea = $("#isRemPwdForTea").prop("checked");
+
                 if (teacherJobNumber == "") {
                     $("#msgForTea").text("用户名不能为空");
                     return;
@@ -111,7 +112,7 @@
             <h1>教师登录</h1>
             <span>尊敬的老师 : ) </span>
             <input type="text" placeholder="工号" value="${cookie.teacherJobNumber.value}" class="input" id="teacherJobNumber">
-            <input type="password" placeholder="密码" value="${cookie.loginPwd.value}" class="input" id="teaPwd">
+            <input type="password" placeholder="密码" value="${cookie.loginPwdForTea.value}" class="input" id="teaPwd">
             <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForTea" placeholder="记住密码">
                 <span id="msgForTea" style="color:red"></span>
             <button id="loginBtnForTea">登录</button>
@@ -129,7 +130,7 @@
             <h1>学生登录</h1>
             <span>亲爱的同学(●'◡'●)</span>
             <input type="text" placeholder="学号" value="${cookie.studentNumber.value}" class="input" id="studentNumber">
-            <input type="password" placeholder="密码" value="${cookie.loginPwd.value}" class="input" id="stuPwd">
+            <input type="password" placeholder="密码" value="${cookie.loginPwdForStu.value}" class="input" id="stuPwd">
             <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForStu" placeholder="记住密码">
             <span id="msgForStu" style="color:red"></span>
             <button id="loginBtnForStu">登录</button>
