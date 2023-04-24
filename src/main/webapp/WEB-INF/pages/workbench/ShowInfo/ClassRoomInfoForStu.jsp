@@ -72,6 +72,11 @@
 
     <script type="text/javascript">
         $(function (){
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryClassroomBtn").click();
+                }
+            });
             queryClassroomByConditionForPage(1,10);
 
             function queryClassroomByConditionForPage(pageNo,pageSize) {

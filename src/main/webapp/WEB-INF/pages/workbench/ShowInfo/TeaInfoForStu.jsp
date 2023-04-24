@@ -63,7 +63,11 @@
     <script type="text/javascript">
         $(function () {
             queryTeacherByConditionForPage(1, 10);
-
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryTeaBtn").click();
+                }
+            });
             function queryTeacherByConditionForPage(pageNo, pageSize) {
                 var TeaName = $("#queryTeaName").val();
                 var TeaNum = $("#queryTeaNum").val();

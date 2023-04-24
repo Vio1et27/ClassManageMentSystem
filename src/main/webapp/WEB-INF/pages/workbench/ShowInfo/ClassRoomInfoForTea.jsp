@@ -75,6 +75,12 @@
         $(function (){
             queryClassroomByConditionForPage(1,10);
 
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryClassroomBtn").click();
+                }
+            });
+
             function queryClassroomByConditionForPage(pageNo,pageSize) {
                 var classroomName=$("#query-classroomName").val();
                 var classroomLocation=$("#query-classroomLocation").val();

@@ -64,7 +64,11 @@
     <script type="text/javascript">
         $(function () {
             queryStudentByConditionForPage(1, 10);
-
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryStuBtn").click();
+                }
+            });
             function queryStudentByConditionForPage(pageNo, pageSize) {
                 var stuName = $("#queryName").val();
                 var stuNum = $("#queryNum").val();

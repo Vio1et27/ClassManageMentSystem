@@ -66,6 +66,11 @@
         $(function (){
             queryCourseByConditionForPage(1,10);
 
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryCourseBtn").click();
+                }
+            });
             function queryCourseByConditionForPage(pageNo,pageSize) {
                 var classroomName=$("#query-classroomName").val();
                 var curriculum=$("#query-curriculum").val();

@@ -99,7 +99,11 @@
     <script type="text/javascript">
         $(function () {
             queryCourseByConditionForPage(1, 10);
-
+            $(window).keydown(function (event){
+                if(event.keyCode == 13){
+                    $("#queryCourseBtn").click();
+                }
+            });
             function queryCourseByConditionForPage(pageNo, pageSize) {
                 var classroomName = $("#query-classroomName").val();
                 var curriculum = $("#query-curriculum").val();
@@ -362,9 +366,10 @@
                 var curriculum = $("#update-classroomCourse").val();
                 var startDate = $("#update_classroomStartDate").val();
                 var endDate = $("#update_classroomEndDate").val();
-                if (classroomName == "") {
-                    $("#msgErrorUpdate").text("教室名不能为空!");
-                    return;
+                if (classroomName == "" ||classroomName==null) {
+                    /*$("#msgErrorUpdate").text("教室名不能为空!");
+                    return;*/
+                    classroomName = oldName;
                 }
                 if (curriculum == "") {
                     $("#msgErrorUpdate").text("教室课程不能为空!");
