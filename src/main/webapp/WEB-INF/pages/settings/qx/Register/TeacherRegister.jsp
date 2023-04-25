@@ -27,23 +27,42 @@
                 var loginPwd = $("#loginPwd").val();
                 var position = $("#position").val();
                 var gender = $('input[type=radio]:checked').val();
-                if (fullName == "") {
-                    $("#msgForTea").text("教师姓名不能为空!");
+                var pattpassword = /^[a-zA-Z]\w{5,17}$/;
+                var pattteacherJobNumber = /^\d{7,}$/;
+                var pattNameAndPos = /^[\u4E00-\u9FA5A-Za-z0-9]{5,12}$/;
+                if(fullName==""||fullName==null){
+                    $("#msgForTea").text("姓名不能为空!");
                     return;
                 }
-                if (teacherJobNumber == "") {
+                if (!pattNameAndPos.test(fullName)) {
+                    $("#msgForTea").text("姓名为中文、英文、数字但不包括下划线等符号，且长度在5-12!");
+                    return;
+                }
+                if(teacherJobNumber==""||teacherJobNumber==null){
                     $("#msgForTea").text("教职工号不能为空!");
                     return;
                 }
-                if (loginPwd == "") {
+                if (!pattteacherJobNumber.test(teacherJobNumber)) {
+                    $("#msgForTea").text("教职工号至少为7位数字");
+                    return;
+                }
+                if(loginPwd==""||loginPwd==null){
                     $("#msgForTea").text("密码不能为空!");
                     return;
                 }
-                if (position == "") {
+                if (!pattpassword.test(loginPwd)) {
+                    $("#msgForTea").text("密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线!");
+                    return;
+                }
+                if(position==""||position==null){
                     $("#msgForTea").text("职位不能为空!");
                     return;
                 }
-                if (gender == "") {
+                if (!pattNameAndPos.test(position)) {
+                    $("#msgForTea").text("职位为中文、英文、数字但不包括下划线等符号，且长度在5-12!");
+                    return;
+                }
+                if (gender == ""||gender == null) {
                     $("#msgForTea").text("性别不能为空!");
                     return;
                 }
@@ -79,8 +98,9 @@
 <body>
 <div class="container">
     <div class="form-container teacher" id="teacherContainer">
-        <div>
+        <div style="margin: 20px">
             <h1>教师注册</h1>
+            <div style="margin: 20px 40px;">
             <span>姓名：</span>
             <input type="text" id="fullName">
             <br><br>
@@ -96,13 +116,13 @@
             <span>性别：</span>
             <span>男</span><input type="radio" name="gender" value="male">
             <span>女</span><input type="radio" name="gender" value="female">
-            <br><br>
+            </div>
             <span id="msgForTea" style="color:red"></span>
-            <br>
             <button id="registerBtnForTea">注册</button>
-            <br><br><a href="settings/qx/Register/toStuRegister.do">学生注册</a>
+            <br>
+            <div style="text-align: center;margin-bottom: 10px;"><a href="settings/qx/Register/toStuRegister.do">学生注册</a></div>
+            <div style="text-align: center;"><a href="settings/qx/Login/toLogin.do" style="margin-top:20px;color: #000;">已有账号?立即登录!</a></div>
         </div>
-        <a href="settings/qx/Login/toLogin.do" style="margin-top:20px;color: #000;">已有账号?立即登录!</a>
     </div>
 </div>
 </body>

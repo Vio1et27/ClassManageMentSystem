@@ -231,7 +231,7 @@
         </ul>
         <ul class="right" style="position: relative;">
             <li class="downlist">
-                <a href="">退出登录</a>
+                <a href="workbench/ShowInfo/logOutMainForTea.do">退出登录</a>
             </li>
             <li>
                 <div class="portrait">

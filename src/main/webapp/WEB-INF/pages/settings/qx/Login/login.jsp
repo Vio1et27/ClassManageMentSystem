@@ -113,7 +113,14 @@
             <span>尊敬的老师 : ) </span>
             <input type="text" placeholder="工号" value="${cookie.teacherJobNumber.value}" class="input" id="teacherJobNumber">
             <input type="password" placeholder="密码" value="${cookie.loginPwdForTea.value}" class="input" id="teaPwd">
-            <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForTea" placeholder="记住密码">
+            <span style="margin-bottom: 8px;">记住密码</span>
+            <c:if test="${not empty cookie.teacherJobNumber and not empty cookie.loginPwdForTea}">
+                <input type="checkbox" id="isRemPwdForTea" checked="checked">
+            </c:if>
+            <c:if test="${empty cookie.teacherJobNumber and empty cookie.loginPwdForTea}">
+                <input type="checkbox" id="isRemPwdForTea">
+            </c:if>
+<%--            <input type="checkbox" id="isRemPwdForTea" placeholder="记住密码">--%>
                 <span id="msgForTea" style="color:red"></span>
             <button id="loginBtnForTea">登录</button>
             <a href="settings/qx/Register/toTeaRegister.do" style="text-decoration: none;margin: 10px;">没有账号?立即注册!</a>
@@ -131,7 +138,14 @@
             <span>亲爱的同学(●'◡'●)</span>
             <input type="text" placeholder="学号" value="${cookie.studentNumber.value}" class="input" id="studentNumber">
             <input type="password" placeholder="密码" value="${cookie.loginPwdForStu.value}" class="input" id="stuPwd">
-            <span style="margin-bottom: 8px;">记住密码</span><input type="checkbox" id="isRemPwdForStu" placeholder="记住密码">
+            <span style="margin-bottom: 8px;">记住密码</span>
+            <c:if test="${not empty cookie.studentNumber and not empty cookie.loginPwdForStu}">
+                <input type="checkbox" id="isRemPwdForStu" checked="checked">
+            </c:if>
+            <c:if test="${empty cookie.studentNumber and empty cookie.loginPwdForStu}">
+                <input type="checkbox" id="isRemPwdForStu">
+            </c:if>
+            <%--<input type="checkbox" id="isRemPwdForStu" placeholder="记住密码">--%>
             <span id="msgForStu" style="color:red"></span>
             <button id="loginBtnForStu">登录</button>
             <a href="settings/qx/Register/toRegister.do" style="text-decoration: none;margin: 10px;">没有账号?立即注册!</a>

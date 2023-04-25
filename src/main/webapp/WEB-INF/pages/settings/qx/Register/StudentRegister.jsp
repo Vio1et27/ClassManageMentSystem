@@ -27,23 +27,38 @@
                 var loginPwd = $.trim($("#loginPwd").val());
                 var age = $.trim($("#age").val());
                 var gender = $('input[type=radio]:checked').val();
-                if (fullName == "") {
-                    $("#msgForStu").text("学生姓名不能为空!");
+                var pattpassword = /^[a-zA-Z]\w{5,17}$/;
+                var pattstudentNumber = /^\d{7,}$/;
+                var pattNameAndPos = /^[\u4E00-\u9FA5A-Za-z0-9]{2,12}$/;
+                if(fullName==""||fullName==null){
+                    $("#msgForStu").text("姓名不能为空!");
                     return;
                 }
-                if (studentNumber == "") {
+                if (!pattNameAndPos.test(fullName)) {
+                    $("#msgForStu").text("姓名为中文、英文、数字但不包括下划线等符号，且长度在2-12!");
+                    return;
+                }
+                if(studentNumber==""||studentNumber==null){
                     $("#msgForStu").text("学号不能为空!");
                     return;
                 }
-                if (loginPwd == "") {
+                if (!pattstudentNumber.test(studentNumber)) {
+                    $("#msgForStu").text("学号至少为7位数字");
+                    return;
+                }
+                if(loginPwd==""||loginPwd==null){
                     $("#msgForStu").text("密码不能为空!");
+                    return;
+                }
+                if (!pattpassword.test(loginPwd)) {
+                    $("#msgForStu").text("密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线!");
                     return;
                 }
                 if (age <= 16 || age >= 25) {
                     $("#msgForStu").text("年龄不符要求(17 - 24)!");
                     return;
                 }
-                if (gender == "") {
+                if (gender == ""||gender==null) {
                     $("#msgForStu").text("性别不能为空!");
                     return;
                 }
@@ -81,30 +96,31 @@
 <body>
 <div class="container">
     <div class="form-container student" id="studentContainer">
-        <div>
+        <div style="margin: 20px">
             <h1>学生注册</h1>
-            <span>姓名：</span>
-            <input type="text" id="fullName" placeholder="">
-            <br><br>
-            <span>学号：</span>
-            <input type="text" id="studentNumber" placeholder="">
-            <br><br>
-            <span>密码：</span>
-            <input type="password" id="loginPwd" placeholder="">
-            <br><br>
-            <span>年龄：</span>
-            <input type="text" id="age" placeholder="">
-            <br><br>
-            <span>性别：</span>
-            <span>男</span><input type="radio" name="gender" value="male">
-            <span>女</span><input type="radio" name="gender" value="female">
-            <br><br>
+            <div style="margin: 20px 40px;">
+                <span>姓名：</span>
+                <input type="text" id="fullName" placeholder="">
+                <br><br>
+                <span>学号：</span>
+                <input type="text" id="studentNumber" placeholder="">
+                <br><br>
+                <span>密码：</span>
+                <input type="password" id="loginPwd" placeholder="">
+                <br><br>
+                <span>年龄：</span>
+                <input type="text" id="age" placeholder="">
+                <br><br>
+                <span>性别：</span>
+                <span>男</span><input type="radio" name="gender" value="male">
+                <span>女</span><input type="radio" name="gender" value="female">
+            </div>
             <span id="msgForStu" style="color:red"></span>
-            <br>
             <button id="registerBtnForStu">注册</button>
-            <br><br><a href="settings/qx/Register/toTeaRegister.do">教师注册</a>
+            <br>
+            <div style="text-align: center;margin-bottom: 10px;"><a href="settings/qx/Register/toTeaRegister.do">教师注册</a></div>
+            <div style="text-align: center;"><a href="settings/qx/Login/toLogin.do" style="margin-top:20px;color: #000;">已有账号?立即登录!</a></div>
         </div>
-        <a href="settings/qx/Login/toLogin.do" style="margin-top:20px;color: #000;">已有账号?立即登录!</a>
     </div>
 </div>
 </body>

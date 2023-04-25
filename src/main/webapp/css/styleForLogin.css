@@ -56,7 +56,7 @@ span{
     border-bottom: 1px solid #0b2983;
     outline: none;
 }
-.form-container input:hover{
+.form-container input:focus{
     background-color: #e0d5d3;
     color: #1137a9;
 }
