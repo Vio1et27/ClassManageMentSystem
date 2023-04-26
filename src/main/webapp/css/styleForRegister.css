@@ -37,7 +37,7 @@ h1{
     align-items: center;
     width: 380px;
     height: 480px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     overflow: hidden;
     border: 2px solid #6578b0;
     border-radius: 5%;

@@ -25,8 +25,61 @@
             letter-spacing: 1px;
         }
         .search input{
-            height: 20px;
-            width: 120px;
+            outline: none;
+            border: 1px solid #b6b8bc;
+            border-radius: 3px;
+            height: 26px;
+            width: 126px;
+            padding: 1px 6px;
+            background-color: white;
+        }
+        .search input:focus{
+            border: 1px solid #5684d9;
+            color: #5684d9;
+        }
+        .search input:hover{
+            background-color: #ECF5FF;
+            border: 1px solid #5684d9;
+        }
+        button{
+            padding:0.4rem 1rem;
+            background-color: white;
+            color: #333;
+            border-radius: 4px;
+            border: 1px solid #818181;
+            outline: none;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #ECF5FF;
+            color: #409eff;
+            border: 1px solid #409eff;
+        }
+
+        button:active{
+            border: 1px solid rgba(33, 143, 206, 0.5);
+            color: rgba(33, 143, 206, 0.5);
+            transform: none;
+        }
+        input{
+            padding:0.4rem 1rem;
+            background-color: rgba(249, 235, 243, 0.5);
+            color: #333;
+            border-radius: 4px;
+            border: 1px solid #818181;
+            outline: none;
+            cursor: pointer;
+        }
+        input:hover{
+            background-color: rgb(249, 235, 243);
+            color: #c23a83;
+            border: 1px solid #c23a87;
+        }
+        input:active{
+            border: 1px solid rgba(33, 143, 206, 0.5);
+            color: rgba(33, 143, 206, 0.5);
+            transform: none;
         }
         .modal button:active{
             color: #2c66e4;

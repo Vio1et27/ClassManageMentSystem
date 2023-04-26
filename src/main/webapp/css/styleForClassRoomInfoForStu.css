@@ -1,9 +1,11 @@
 body{
+    background-image: url(../image/0.jpg);
+    background-size: cover;
+    background-attachment: fixed;
     min-width: 1264px;
     color: #333;
     font-size: 16px;
     background-color: rgb(220, 220, 234);
-
 }
 a {
     text-decoration: none;
@@ -123,7 +125,7 @@ a {
     padding-bottom: 10px;
     width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
 }
 .main .myDetails{
