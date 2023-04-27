@@ -10,6 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="jquery/bootstrap_3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="js/lib-master/theme-chalk/index.css">
+    <script src="js/vue.js"></script>
+    <script src="js/lib-master/index.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/qs.js"></script>
     <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
     <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +106,7 @@
     </script>
 </head>
 <body>
+<div id="app">
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <div style=" background-color: #fff;display: flex;
@@ -169,6 +175,8 @@
         </div>
     </div>
 </div>
+</div>
 </body>
+
 <script src="js/login.js"></script>
 </html>

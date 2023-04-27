@@ -351,6 +351,7 @@
         <div style="margin-left: 5%;margin-bottom: 1%;">
             <span>自己课程</span><input type="radio" name="aaa" id="myCourse">
             <span>全部课程</span><input type="radio" name="aaa" id="AllCourse" checked>
+            <span>预约教室</span><button id="appointClassRoom" style="padding:3px 5px;">+</button>
         </div>
         <table>
             <tr class="first">
@@ -362,7 +363,6 @@
                 <td>开始时间</td>
                 <td>结束时间</td>
                 <td>授课老师</td>
-                <td>预约教室<button id="appointClassRoom" style="padding:3px 5px;">+</button></td>
             </tr>
             <tbody id="tBody">
 

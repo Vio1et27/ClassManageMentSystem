@@ -155,9 +155,18 @@ table .first{
 td{
     text-align: center;
     padding: 14px 0;
-    border: #333 1px solid;
+    border-bottom: rgba(98, 98, 101, 0.7) 1px solid;
+    border-top:none;
+    border-right:none;
+    border-left:none;
     letter-spacing: 2px;
 }
-td:hover{
-    background-color: #eeeef0;
+
+tr:hover{
+    color:#409effff;
+    background-color: rgba(236, 245, 255, 0.3);
+}
+.first:hover{
+    color: #0b2983;
+    background-color: transparent;
 }

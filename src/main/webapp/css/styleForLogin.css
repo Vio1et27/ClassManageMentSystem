@@ -60,22 +60,43 @@ span{
     background-color: #e0d5d3;
     color: #1137a9;
 }
-.form-container button:active{
-    transform: scale(0.95,0.95);
-    background-color: #1137a9;
-    color: rgb(225, 213, 213);
-    
-}
+/*.form-container button:active{*/
+/*    transform: scale(0.95,0.95);*/
+/*    background-color: #1137a9;*/
+/*    color: rgb(225, 213, 213);*/
+/*    */
+/*}*/
+/*.form-container button{*/
+/*    margin-top: 1.4rem;*/
+/*    padding:0.4rem 1rem;*/
+/*    background-color: #42507a;*/
+/*    color: white;*/
+/*    border-radius: 7px;*/
+/*    border: 1px solid #fff;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*    transition: all 150ms ease-in;*/
+/*}*/
 .form-container button{
-    margin-top: 1.4rem;
     padding:0.4rem 1rem;
-    background-color: #42507a;
-    color: white;
-    border-radius: 7px;
-    border: 1px solid #fff;
+    background-color: white;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #818181;
     outline: none;
     cursor: pointer;
-    transition: all 150ms ease-in;
+}
+
+.form-container button:hover{
+    background-color: #ECF5FF;
+    color: #409eff;
+    border: 1px solid #409eff;
+}
+
+.form-container button:active{
+    border: 1px solid rgba(33, 143, 206, 0.5);
+    color: rgba(33, 143, 206, 0.5);
+    transform: none;
 }
 .overlay-container button:active{
     transform: scale(0.95,0.95);
